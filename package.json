@@ -1,0 +1,25 @@
+{
+  "name": "not-a-reader",
+  "version": "1.0.0",
+  "description": "Tell a person opening a page from a crawler, link preview, AI fetcher, script or prefetch, by user agent and fetch headers alone. Zero dependencies, stores nothing.",
+  "keywords": ["bot", "crawler", "user-agent", "bot-detection", "analytics", "page-views", "privacy", "prefetch", "ai-crawler", "edge"],
+  "homepage": "https://github.com/xternal/not-a-reader#readme",
+  "bugs": "https://github.com/xternal/not-a-reader/issues",
+  "repository": { "type": "git", "url": "git+https://github.com/xternal/not-a-reader.git" },
+  "license": "MIT",
+  "author": "Pavel Guzhikov (https://guzh.uk)",
+  "type": "module",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings --test test/*.test.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": { "typescript": "^5.9.3", "@types/node": "^22.10.0" }
+}
